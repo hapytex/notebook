@@ -1,0 +1,2 @@
+note:
+	bash make
