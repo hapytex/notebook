@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd -- "$(dirname -- "${BASH_SOURCE[0]}")"
+
 if [ "$#" -le 0 ]; then
   read -p 'entry> ' entry
 else
