@@ -11,4 +11,10 @@ else
   entry=$(echo "$@")
 fi
 
-echo "$hhmm$entry" >> "entries/$yymmdd.entry"
+topics=('general')
+topics+=( $(grep -P -o '(?<=[#])\w+' <<<"$entry") )
+
+for topic in "${topics[@]}"; do
+  mkdir -p "entries/$topic"
+  echo "$hhmm$entry" >> "entries/$topic/$yymmdd.entry"
+done
