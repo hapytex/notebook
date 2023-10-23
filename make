@@ -15,8 +15,9 @@ timespec=$(grep -P -o '(?<=[@]).+' <<<"$entry" || echo 'now')
 topics=('general')
 topics+=( $(grep -P -o '(?<=[#])\w+' <<<"$entry") )
 
-hhmm=$(date '+%H%M: ' -d "$timespec")
-yymmdd=$(date '+%y%m%d' -d "$timespec")
+yymmddhhmm=$(date '+%y%m%d%H%M:' -d "$timespec")
+hhmm="${yymmddhhmm:6:5}"
+yymmdd="${yymmddhhmm:0:6}"
 
 for topic in "${topics[@]}"; do
   mkdir -p "entries/$topic"
