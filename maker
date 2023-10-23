@@ -4,4 +4,5 @@ cd -- "$(dirname -- "${BASH_SOURCE[0]}")"
 
 while [ true ]; do
   bash make
+  echo -e "\033[1A\033[999D$(date '+%H%M: ')\033[6D"
 done
