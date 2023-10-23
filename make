@@ -15,8 +15,8 @@ timespec=$(grep -P -o '(?<=[@]).+' <<<"$entry" || echo 'now')
 topics=('general')
 topics+=( $(grep -P -o '(?<=[#])\w+' <<<"$entry") )
 
-yymmddhhmm=$(date '+%y%m%d%H%M:' -d "$timespec")
-hhmm="${yymmddhhmm:6:5}"
+yymmddhhmm=$(date '+%y%m%d%H%M: ' -d "$timespec")
+hhmm="${yymmddhhmm:6:6}"
 yymmdd="${yymmddhhmm:0:6}"
 
 for topic in "${topics[@]}"; do
