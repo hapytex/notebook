@@ -1,5 +1,13 @@
 *.entry
+
 entries
 entries/
 entries/*
 entries/**
+
+stats
+stats/
+stats/*
+stats/**
+
+*.sh
