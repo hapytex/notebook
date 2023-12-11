@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [ "$#" -lt 2 ]; then
+  echo "You need to specify the kind of statistic and the value"
+  exit 1
+fi
+
+
