@@ -5,9 +5,10 @@ cd -- "$(dirname -- "${BASH_SOURCE[0]}")"
 
 
 hhmm=$(date '+%H%M: ')
+title=$(echo -n -e "\033]0;Notebook entry\a")
 
 if [ "$#" -le 0 ]; then
-  read -p "  $hhmm" entry
+  read -p "$title  $hhmm" entry
 else
   entry=$(echo "$@")
 fi
@@ -22,7 +23,7 @@ hhmm="${yymmddhhmm:6:6}"
 yymmdd="${yymmddhhmm:0:6}"
 
 if [ "$#" -le 0 ]; then
-  echo -e "\033]0;Notebook entry\a\033[1A\r\033[32m✓ $hhmm\033[0m\033[6D"
+  echo -e "\033[1A\r\033[32m✓ $hhmm\033[0m\033[6D"
 fi
 
 for topic in "${topics[@]}"; do
