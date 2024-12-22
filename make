@@ -5,7 +5,7 @@ cd -- "$(dirname -- "${BASH_SOURCE[0]}")"
 
 
 hhmm=$(date '+%H%M')
-title=$(echo -n -e "\033]0;📓 Notebook entry $hhmm\a  \033[93m$hhmm: \033[0m")
+title=$(echo -n -e "\033]0;📓 $hhmm Notebook entry\a  \033[93m$hhmm: \033[0m")
 
 if [ "$#" -le 0 ]; then
   read -p "$title" entry
