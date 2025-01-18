@@ -27,6 +27,7 @@ if [ "$#" -le 0 ]; then
 fi
 
 for topic in "${topics[@]}"; do
+  topic=$(sed -E 's/\W+/_/g' <<<"$topic" | tr '[:upper:]' '[:lower:]')
   mkdir -p "entries/$topic"
   echo "$hhmm: $entry" >> "entries/$topic/$yymmdd.entry"
 done
