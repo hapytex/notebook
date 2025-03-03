@@ -5,13 +5,14 @@ cd -- "$(dirname -- "${BASH_SOURCE[0]}")"
 
 
 hhmm=$(date '+%H%M')
-title=$(echo -n -e "\033]0;📓 $hhmm Notebook entry\a  \033[93m$hhmm: \033[0m")
+title=$(echo -n -e "\033]0;📓 $hhmm Notebook entry\a  \033[93m$hhmm: \033[0m\033[1m")
 
 if [ "$#" -le 0 ]; then
   read -p "$title" entry
 else
   entry=$(echo "$@")
 fi
+echo -en '\033[0m'
 
 timespec=$(grep -P -o '(?<=[@]).+' <<<"$entry" || echo 'now')
 
