@@ -23,8 +23,13 @@ yymmddhhmm=$(date '+%y%m%d%H%M' -d "$timespec")
 hhmm="${yymmddhhmm:6:4}"
 yymmdd="${yymmddhhmm:0:6}"
 
+# redacted version
+wht=$(echo -en "\033[37m\e[47m")
+ned=$(echo -en "\033[0m")
+red=$(sed -e "s/[|][^|]*[|]/$wht\\0$ned/g" <<<"$entry")
+
 if [ "$#" -le 0 ]; then
-  echo -e "\033[1A\r\033[32m✓ $hhmm: \033[0m\033[6D"
+  echo -e "\033[1A\r\033[32m✓ $hhmm: \033[0m$red\033[0m\r"
 fi
 
 for topic in "${topics[@]}"; do
