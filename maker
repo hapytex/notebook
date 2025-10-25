@@ -2,6 +2,10 @@
 
 cd -- "$(dirname -- "${BASH_SOURCE[0]}")"
 
+for _ in $(seq 2 `tput lines`); do
+  echo
+done
+
 while [ true ]; do
   bash make
 done
