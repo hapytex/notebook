@@ -14,6 +14,12 @@ else
 fi
 echo -en '\033[0m'
 
+if [ "$entry" == 'CLEAR' ]; then
+  for _ in $(seq `tput lines`); do
+    echo
+  done
+fi
+
 timespec=$(grep -P -o '(?<=[@]).+' <<<"$entry" || echo 'now')
 
 topics=('general')
